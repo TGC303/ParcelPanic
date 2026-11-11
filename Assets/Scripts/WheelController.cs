@@ -25,6 +25,8 @@ public class WheelController : MonoBehaviour
         //Apply Acceleration to front wheels
         frontLeft.motorTorque = currentAcceleration;
         frontRight.motorTorque = currentAcceleration;
+        backLeft.motorTorque = currentAcceleration;
+        backRight.motorTorque = currentAcceleration;
 
         //Apply Breaking to wheels
         frontRight.brakeTorque = currentBreakForce;
