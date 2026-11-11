@@ -21,8 +21,8 @@ public class VanController : MonoBehaviour
         moveInput = moveAction.ReadValue<Vector2>();
 
         // Move the vehicle forward
-        transform.Translate(Vector3.forward * Time.deltaTime * moveInput.y);
+        transform.Translate(Vector3.forward * Time.deltaTime * speed * moveInput.y);
         //Turns Vehicle
-        transform.Rotate(Vector3.up, Time.deltaTime * moveInput.x);
+        transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * moveInput.x);
     }
 }
