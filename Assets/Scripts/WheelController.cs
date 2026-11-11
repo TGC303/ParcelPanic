@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class WheelController : MonoBehaviour
 {
-    WheelCollider frontRight;
-    WheelCollider frontLeft;
-    WheelCollider backRight;
-    WheelCollider backLeft;
+    public WheelCollider frontRight;
+    public WheelCollider frontLeft;
+    public WheelCollider backRight;
+    public WheelCollider backLeft;
 
     public float acceleration = 500f;
     public float breakingForce = 300f;
@@ -15,6 +15,9 @@ public class WheelController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Moves Forward / Backwards W % S
+        currentAcceleration = acceleration * Input.GetAxis("Vertical");
+
         //Apply Acceleration to front wheels
         frontLeft.motorTorque = currentAcceleration;
         frontRight.motorTorque = currentAcceleration;
