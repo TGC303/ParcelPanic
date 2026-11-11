@@ -5,7 +5,7 @@ public class VanController : MonoBehaviour
 {
     //Variabels
     public float speed = 5.0f;
-    public float turnSpeed;
+    public float turnSpeed = 100;
     public InputAction moveAction;
     public Vector2 moveInput;
 
@@ -23,6 +23,6 @@ public class VanController : MonoBehaviour
         // Move the vehicle forward
         transform.Translate(Vector3.forward * Time.deltaTime * moveInput.y);
         //Turns Vehicle
-        transform.Translate(Vector3.right * Time.deltaTime * moveInput.x);
+        transform.Rotate(Vector3.up, Time.deltaTime * moveInput.x);
     }
 }
