@@ -874,7 +874,7 @@ MonoBehaviour:
   frontLeft: {fileID: 806828918}
   backRight: {fileID: 1928909535}
   backLeft: {fileID: 750260119}
-  acceleration: 500
+  acceleration: 1000
   breakingForce: 300
   maxTurnAngle: 50
 --- !u!1001 &970397366
