@@ -9,13 +9,17 @@ public class WheelController : MonoBehaviour
 
     public float acceleration = 500f;
     public float breakingForce = 300f;
+    public float maxTurnAngle = 25f;
 
     private float currentAcceleration = 0f;
     private float currentBreakForce = 0f;
+    private float currentTurnAngle = 0f;
+
+
 
     private void FixedUpdate()
     {
-        //Moves Forward / Backwards W % S
+        //Moves Forward / Backwards W & S
         currentAcceleration = acceleration * Input.GetAxis("Vertical");
 
         //Apply Acceleration to front wheels
@@ -27,6 +31,11 @@ public class WheelController : MonoBehaviour
         frontLeft.brakeTorque = currentBreakForce;
         backLeft.brakeTorque = currentBreakForce;
         backRight.brakeTorque = currentBreakForce;
+
+        //Deals with steeering
+        currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontal");
+        frontLeft.steerAngle = currentTurnAngle;
+        frontRight.steerAngle = currentTurnAngle;
 
     }
 }
