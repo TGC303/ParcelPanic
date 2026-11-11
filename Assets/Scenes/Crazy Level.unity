@@ -441,6 +441,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 744c666d9532eaa448fb34b400b8944b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VanController
+  speed: 30
+  turnSpeed: 15
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 36f1be3d-6133-4a16-ac8b-90db5498eabf
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 212828ca-e92e-451f-8314-3d9a55d7cab7
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: up
+      m_Id: d210ca9a-88ed-48a2-8dbf-55a41cc8d21c
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 663aab17-1d3f-4ff9-be3d-b66d189c8e94
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 6e7d8a4f-79a6-42b3-a671-18e4a51fff20
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 883358cb-0862-4448-adf8-403d4be17109
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    m_Flags: 0
+  moveInput: {x: 0, y: 0}
 --- !u!1001 &970397366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -499,10 +551,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 118600, guid: 68840c673a0b18e41a044ed077548d55, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 944868620}
+      addedObject: {fileID: 944868619}
     - targetCorrespondingSourceObject: {fileID: 118600, guid: 68840c673a0b18e41a044ed077548d55, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 944868619}
+      addedObject: {fileID: 944868620}
   m_SourcePrefab: {fileID: 100100000, guid: 68840c673a0b18e41a044ed077548d55, type: 3}
 --- !u!1 &1694601162
 GameObject:
