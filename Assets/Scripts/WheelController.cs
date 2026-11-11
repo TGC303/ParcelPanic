@@ -10,6 +10,7 @@ public class WheelController : MonoBehaviour
     public float acceleration = 500f;
     public float breakingForce = 300f;
     public float maxTurnAngle = 25f;
+    public float reverseSpeed = 1.5f;
 
     private float currentAcceleration = 0f;
     private float currentBreakForce = 0f;
@@ -38,6 +39,12 @@ public class WheelController : MonoBehaviour
         currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontal");
         frontLeft.steerAngle = currentTurnAngle;
         frontRight.steerAngle = currentTurnAngle;
+
+        // Power to revering
+        if (Input.GetAxis("Vertical") < 0)
+        {
+            currentAcceleration *= reverseSpeed;
+        }
 
     }
 }
