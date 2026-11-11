@@ -876,7 +876,8 @@ MonoBehaviour:
   backLeft: {fileID: 750260119}
   acceleration: 4000
   breakingForce: 300
-  maxTurnAngle: 50
+  maxTurnAngle: 75
+  reverseSpeed: 5
 --- !u!1001 &970397366
 PrefabInstance:
   m_ObjectHideFlags: 0
