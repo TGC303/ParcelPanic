@@ -1254,6 +1254,19 @@ MonoBehaviour:
   breakingForce: 4000
   maxTurnAngle: 100
   reverseSpeed: 2.5
+--- !u!114 &944868633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944868614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91301d6ca65eca449ad102eaf4b5eca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VanWeight
+  rgbd: {fileID: 944868619}
 --- !u!1001 &970397366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1333,6 +1346,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 118600, guid: 68840c673a0b18e41a044ed077548d55, type: 3}
       insertIndex: -1
       addedObject: {fileID: 944868629}
+    - targetCorrespondingSourceObject: {fileID: 118600, guid: 68840c673a0b18e41a044ed077548d55, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 944868633}
   m_SourcePrefab: {fileID: 100100000, guid: 68840c673a0b18e41a044ed077548d55, type: 3}
 --- !u!1001 &1027534360
 PrefabInstance:
@@ -2295,6 +2311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a402931e57f1a44386ebd5b8a22fbc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParcelCollable
+  parcelWeight: 1000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
