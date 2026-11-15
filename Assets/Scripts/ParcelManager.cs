@@ -4,28 +4,34 @@ using UnityEngine.InputSystem;
 public class ParcelManager : MonoBehaviour
 {
     public GameObject parcel;
-    public InputAction spawnAction;
+    private float spawnRangeX = 29;
+    private float spawnPosZ = -160;
+    private float startDelay = 2;
+    private float spawnInterval = 1.5f;
 
-    private float spawnRangeX = 30f;
-    private float spawnPosZ = 10f;
+    private int maxParcels = 10;  // Maximum number of parcels allowed
 
     void Start()
     {
-        spawnAction.Enable();
+        InvokeRepeating("SpawnParcels", startDelay, spawnInterval);
     }
 
-    void Update()
+    void SpawnParcels()
     {
-        if (spawnAction.triggered)
+        // Count all parcels currently in the scene
+        GameObject[] parcels = GameObject.FindGameObjectsWithTag("Parcel");
+
+        // Only spawn if there are less than 15
+        if (parcels.Length < maxParcels)
         {
-            // Generate a random X position
             Vector3 spawnPos = new Vector3(
                 Random.Range(-spawnRangeX, spawnRangeX),
                 0,
                 spawnPosZ
             );
-            // Create a new parcel at the random position
+
             Instantiate(parcel, spawnPos, parcel.transform.rotation);
         }
     }
+
 }

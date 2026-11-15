@@ -3,8 +3,8 @@ using UnityEngine;
 public class ParcelCollable : MonoBehaviour
 {
     public float parcelWeight;
-    public float minWeight = 5f;
-    public float maxWeight = 100f;
+    public int minWeight = 5;
+    public int maxWeight = 50;
 
     void Start()
     {
