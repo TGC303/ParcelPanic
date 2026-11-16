@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     public float SteerAngle = 20;
     public float Traction = 1f;
 
+    public float VanWeight = 0f;
+    public float accelerationReduction = 0.1f;
+    public float speedReduction = 0.01f;
+
 
     // Update is called once per frame
     void Update()
@@ -20,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
         Steering();
         GroundTraction();
 
-    
     }
 
     void Moving()
@@ -28,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
        // Moving
         MoveForce += transform.forward * MoveSpeed * Input.GetAxis("Vertical") * Time.deltaTime;
         transform.position += MoveForce * Time.deltaTime;
-
     }
 
     void Steering()
@@ -46,4 +48,14 @@ public class PlayerMovement : MonoBehaviour
         //Traction
         MoveForce = Vector3.Lerp(MoveForce.normalized, transform.forward, Traction * Time.deltaTime) * MoveForce.magnitude;
     }
+
+    public void AddWeight(float weight)
+{
+    VanWeight += weight;
+    //Mathf -- compares two numbers and returns the larger
+    MoveSpeed = Mathf.Max(10f, 50f - VanWeight * accelerationReduction);
+    MaxSpeed = Mathf.Max(5f, 15f - VanWeight * speedReduction);
+}
+
+
 }
