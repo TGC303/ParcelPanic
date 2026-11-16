@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ParcelCollable : MonoBehaviour
 {
-    public float parcelWeight;
+    private float parcelWeight;
     public int minWeight = 5;
-    public int maxWeight = 50;
+    public int maxWeight = 100;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class ParcelCollable : MonoBehaviour
             // Increase the van's weight
             other.attachedRigidbody.mass += parcelWeight;
 
-            Debug.Log("Parcel collected" + " - Weight is" + parcelWeight);
+            Debug.Log("Parcel collected" );
 
             // Remove the parcel
             Destroy(gameObject);
