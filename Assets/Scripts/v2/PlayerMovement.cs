@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public float Traction = 1f;
 
     public float VanWeight = 0f;
-    public float accelerationReduction = 0.1f;
-    public float speedReduction = 0.01f;
+    public float accelerationReduction = 0.030f;
+    public float speedReduction = 0.006f;
 
 
     // Update is called once per frame
@@ -52,9 +52,24 @@ public class PlayerMovement : MonoBehaviour
     public void AddWeight(float weight)
 {
     VanWeight += weight;
+
+   if (weight <= 25)
+{
+    // Light parcel
+    MoveSpeed -= weight * 0.05f;
+    MaxSpeed -= weight * 0.05f;
+}
+else
+{
+    // Heavy parcel - normal impact
+    MoveSpeed -= weight * 0.5f;
+    MaxSpeed -= weight * 0.5f;
+}
+
+
     //Mathf -- compares two numbers and returns the larger
-    MoveSpeed = Mathf.Max(10f, 50f - VanWeight * accelerationReduction);
-    MaxSpeed = Mathf.Max(5f, 15f - VanWeight * speedReduction);
+        MoveSpeed = Mathf.Max(250f, MoveSpeed);
+        MaxSpeed = Mathf.Max(300f, MaxSpeed);
 }
 
 
