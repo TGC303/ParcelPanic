@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+// Inspiration - https://youtu.be/BSybcKPQCnc?si=pk4Nr4ycdvG1pCYD
+
     public float MoveSpeed = 50f;
     private Vector3 MoveForce;
     public float MaxSpeed = 15f;
