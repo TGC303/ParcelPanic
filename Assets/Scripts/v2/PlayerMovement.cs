@@ -5,8 +5,8 @@ public class PlayerMovement : MonoBehaviour
 {
 // Inspiration - https://youtu.be/BSybcKPQCnc?si=pk4Nr4ycdvG1pCYD
 
-    public float MoveSpeed = 50f;
     private Vector3 MoveForce;
+    public float MoveSpeed = 50f;
     public float MaxSpeed = 15f;
     private float Drag= 0.98f;
     public float SteerAngle = 20;
@@ -17,13 +17,13 @@ public class PlayerMovement : MonoBehaviour
     public float speedReduction = 0.006f;
 
 
+
     // Update is called once per frame
     void Update()
     {
         Moving();
         Steering();
         GroundTraction();
-
     }
 
     void Moving()
@@ -49,27 +49,38 @@ public class PlayerMovement : MonoBehaviour
         MoveForce = Vector3.Lerp(MoveForce.normalized, transform.forward, Traction * Time.deltaTime) * MoveForce.magnitude;
     }
 
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Ground"))
+            {
+                MoveSpeed = 1500f;
+                MaxSpeed = 1500f;
+            }
+        }
+
+
+
     public void AddWeight(float weight)
 {
-    VanWeight += weight;
+        VanWeight += weight;
 
-   if (weight <= 25)
-{
-    // Light parcel
-    MoveSpeed -= weight * 0.05f;
-    MaxSpeed -= weight * 0.05f;
-}
-else
-{
-    // Heavy parcel - normal impact
-    MoveSpeed -= weight * 0.5f;
-    MaxSpeed -= weight * 0.5f;
-}
+        if (weight <= 25)
+        {
+            // Light parcel
+            MoveSpeed -= weight * 0.05f;
+            MaxSpeed -= weight * 0.05f;
+        }
+        else
+        {
+            // Heavy parcel - normal impact
+            MoveSpeed -= weight * 0.5f;
+            MaxSpeed -= weight * 0.5f;
+        }
 
 
-    //Mathf -- compares two numbers and returns the larger
-        MoveSpeed = Mathf.Max(250f, MoveSpeed);
-        MaxSpeed = Mathf.Max(300f, MaxSpeed);
+            //Mathf -- compares two numbers and returns the larger
+                MoveSpeed = Mathf.Max(250f, MoveSpeed);
+                MaxSpeed = Mathf.Max(300f, MaxSpeed);
 }
 
 
