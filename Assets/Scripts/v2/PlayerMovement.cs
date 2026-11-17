@@ -6,10 +6,10 @@ public class PlayerMovement : MonoBehaviour
 // Inspiration - https://youtu.be/BSybcKPQCnc?si=pk4Nr4ycdvG1pCYD
 
     private Vector3 MoveForce;
-    public float MoveSpeed = 50f;
-    public float MaxSpeed = 15f;
+    public float MoveSpeed = 800;
+    public float MaxSpeed = 900;
     private float Drag= 0.98f;
-    public float SteerAngle = 20;
+    public float SteerAngle = 12;
     public float Traction = 1f;
 
     public float VanWeight = 0f;
@@ -53,10 +53,20 @@ public class PlayerMovement : MonoBehaviour
         {
             if (other.CompareTag("Ground"))
             {
-                MoveSpeed = 1500f;
-                MaxSpeed = 1500f;
+                 Debug.Log("GROUND DETECTED!");
+                MoveSpeed = MoveSpeed /2;
+                MaxSpeed = maxParcels /2;
             }
         }
+         void OnTriggerExit(Collider other)
+        {
+              if (other.CompareTag("Ground"))
+            {
+                MoveSpeed = 800;
+                MaxSpeed = 900;
+            }
+        }
+
 
 
 
