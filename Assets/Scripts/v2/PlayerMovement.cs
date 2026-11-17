@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
             {
                  Debug.Log("GROUND DETECTED!");
                 MoveSpeed = MoveSpeed /2;
-                MaxSpeed = maxParcels /2;
+                MaxSpeed = MaxSpeed /2;
             }
         }
          void OnTriggerExit(Collider other)
