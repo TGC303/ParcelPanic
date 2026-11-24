@@ -16,13 +16,17 @@ void Start()
         {
             playerMovement.MoveSpeed = 200f;
         }
+       else if (other.CompareTag("SpeedBoost"))
+{
+    playerMovement.MoveSpeed = 1500;
+}
+
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Ground"))
+        if (other.CompareTag("Ground") || other.CompareTag("SpeedBoost") )
         {
-            Debug.Log("Works");
             playerMovement.MoveSpeed = OriginalMoveSpeed;
         }
     }

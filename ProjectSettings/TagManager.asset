@@ -7,7 +7,8 @@ TagManager:
   - Parcel
   - Ground
   - Road
-  - Speedy
+  - Building
+  - SpeedBoost
   layers:
   - Default
   - TransparentFX
