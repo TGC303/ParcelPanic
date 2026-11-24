@@ -8,8 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 MoveForce;
     public float MoveSpeed = 800;
     public float MaxSpeed = 900;
-    private float OriginalMoveSpeed;
-    private float OriginalMaxSpeed;
+    private float OriginalMoveSpeed = 0f;
 
     private float Drag= 0.98f;
     public float SteerAngle = 12;
@@ -19,7 +18,10 @@ public class PlayerMovement : MonoBehaviour
     public float accelerationReduction = 0.030f;
     public float speedReduction = 0.006f;
 
-
+    void Start()
+    {
+        OriginalMoveSpeed = MoveSpeed;   
+    }
 
     // Update is called once per frame
     void Update()
@@ -51,31 +53,24 @@ public class PlayerMovement : MonoBehaviour
         //Traction
         MoveForce = Vector3.Lerp(MoveForce.normalized, transform.forward, Traction * Time.deltaTime) * MoveForce.magnitude;
     }
-
-        void OnTriggerEnter(Collider other)
+    
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ground"))
         {
-            if (other.CompareTag("Ground"))
-            {
-                        // Store current speeds
-                OriginalMoveSpeed = MoveSpeed;
-                OriginalMaxSpeed = MaxSpeed;
-                 Debug.Log("GROUND DETECTED!");
-                MoveSpeed = MoveSpeed /2;
-                MaxSpeed = MaxSpeed /2;
-            }
+            Debug.Log("Grass is True");
+            MoveSpeed = 200f;
         }
-         void OnTriggerExit(Collider other)
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Ground"))
         {
-              if (other.CompareTag("Ground"))
-            {
-                  // Restore previous speeds
-                MoveSpeed = OriginalMoveSpeed;
-                MaxSpeed = OriginalMaxSpeed;
-            }
+            Debug.Log("Grass is False");
+            MoveSpeed = OriginalMoveSpeed;
         }
-
-
-
+    }
 
     public void AddWeight(float weight)
 {
