@@ -26,7 +26,7 @@ void Start()
 
        void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Finish"))
+        if (other.CompareTag("SpeedBoost"))
         {
             playerMovement.MoveSpeed = Speedamount;
             playerMovement.MaxSpeed = Maxamount;
@@ -39,7 +39,7 @@ void Start()
         {
             playerMovement.MoveSpeed = OriginalMoveSpeed;
         }
-        if (other.CompareTag("Finish"))
+        if (other.CompareTag("SpeedBoost"))
             {
                 playerMovement.MoveSpeed = OriginalMoveSpeed;
                 playerMovement.MaxSpeed = OriginalMaxSpeed;
