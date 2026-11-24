@@ -15,12 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public float VanWeight = 0f;
     public float accelerationReduction = 0.030f;
     public float speedReduction = 0.006f;
-    private Rigidbody rgbdy;
 
-    void Start()
-    {
-         rb = GetComponent<Rigidbody>();
-    }
+
 
     // Update is called once per frame
     void Update()
