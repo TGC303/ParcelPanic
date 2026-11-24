@@ -1,16 +1,29 @@
 using UnityEngine;
 
-public class PlayerCollision : MonoBehaviour
+public class GrassSlowdown : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public PlayerMovement playerMovement;
+    private float OriginalMoveSpeed;
+
+void Start()
+{
+     OriginalMoveSpeed = playerMovement.MoveSpeed;  
+}
+
+    void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Ground"))
+        {
+            playerMovement.MoveSpeed = 200f;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerExit(Collider other)
     {
-        
+        if (other.CompareTag("Ground"))
+        {
+            Debug.Log("Works");
+            playerMovement.MoveSpeed = OriginalMoveSpeed;
+        }
     }
 }

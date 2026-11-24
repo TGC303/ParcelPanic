@@ -54,24 +54,6 @@ public class PlayerMovement : MonoBehaviour
         MoveForce = Vector3.Lerp(MoveForce.normalized, transform.forward, Traction * Time.deltaTime) * MoveForce.magnitude;
     }
     
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Ground"))
-        {
-            Debug.Log("Grass is True");
-            MoveSpeed = 200f;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Ground"))
-        {
-            Debug.Log("Grass is False");
-            MoveSpeed = OriginalMoveSpeed;
-        }
-    }
-
     public void AddWeight(float weight)
 {
         VanWeight += weight;
