@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 MoveForce;
     public float MoveSpeed = 800;
     public float MaxSpeed = 900;
+    private float OriginalMoveSpeed;
+    private float OriginalMaxSpeed;
+
     private float Drag= 0.98f;
     public float SteerAngle = 12;
     public float Traction = 1f;
@@ -53,6 +56,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (other.CompareTag("Ground"))
             {
+                        // Store current speeds
+                OriginalMoveSpeed = MoveSpeed;
+                OriginalMaxSpeed = MaxSpeed;
                  Debug.Log("GROUND DETECTED!");
                 MoveSpeed = MoveSpeed /2;
                 MaxSpeed = MaxSpeed /2;
@@ -62,8 +68,9 @@ public class PlayerMovement : MonoBehaviour
         {
               if (other.CompareTag("Ground"))
             {
-                MoveSpeed = 800;
-                MaxSpeed = 900;
+                  // Restore previous speeds
+                MoveSpeed = OriginalMoveSpeed;
+                MaxSpeed = OriginalMaxSpeed;
             }
         }
 
