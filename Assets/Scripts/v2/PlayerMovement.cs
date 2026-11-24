@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float MoveSpeed = 800;
     public float MaxSpeed = 900;
     private float OriginalMoveSpeed = 0f;
+     private float OriginalMaxSpeed = 0f;
 
     private float Drag= 0.98f;
     public float SteerAngle = 12;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         OriginalMoveSpeed = MoveSpeed;   
+        OriginalMaxSpeed = MaxSpeed;
     }
 
     // Update is called once per frame
