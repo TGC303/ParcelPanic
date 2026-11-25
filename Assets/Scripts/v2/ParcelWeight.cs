@@ -7,7 +7,7 @@ public class ParcelWeight : MonoBehaviour
 {
     private float parcelWeight;
     public int minWeight = 5;
-    public int maxWeight = 900;
+    public int maxWeight = 100;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,7 +26,7 @@ public class ParcelWeight : MonoBehaviour
 {
     if (other.CompareTag("Player"))
     {
-        other.GetComponentInParent<PlayerMovement>().AddWeight(parcelWeight);
+        other.GetComponentInParent<VanWeight>().AddWeight(parcelWeight);
 
         Debug.Log("Parcel collected: " + parcelWeight + "kg");
 

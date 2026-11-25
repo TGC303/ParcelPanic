@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         MoveForce = Vector3.Lerp(MoveForce.normalized, transform.forward, Traction * Time.deltaTime) * MoveForce.magnitude;
     }
     
-    public void AddWeight(float weight)
+    /*public void AddWeight(float weight)
 {
         VanWeight += weight;
 
@@ -79,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
                 MoveSpeed = Mathf.Max(250f, MoveSpeed);
                 MaxSpeed = Mathf.Max(300f, MaxSpeed);
 }
+*/
 
 
 }

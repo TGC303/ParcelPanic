@@ -10,6 +10,7 @@ public class PlayerCollision : MonoBehaviour
     private float OriginalMaxSpeed;
     public float Speedamount = 1200f;
     public float Maxamount = 1500;
+    public PlayerMovement RemoveWeight;
 
 void Start()
 {
