@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ee67496064b72d4eb05f1ffb0a86fb1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 79.787964
+      value: 77.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ee67496064b72d4eb05f1ffb0a86fb1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -76,29 +76,38 @@ PrefabInstance:
       propertyPath: m_TagString
       value: DropOff
       objectReference: {fileID: 0}
+    - target: {fileID: 6119990633141524667, guid: 8ee67496064b72d4eb05f1ffb0a86fb1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6119990633141524667, guid: 8ee67496064b72d4eb05f1ffb0a86fb1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6119990633141524667, guid: 8ee67496064b72d4eb05f1ffb0a86fb1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ee67496064b72d4eb05f1ffb0a86fb1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 572466020785112708}
+      addedObject: {fileID: 6481053598673675037}
   m_SourcePrefab: {fileID: 100100000, guid: 8ee67496064b72d4eb05f1ffb0a86fb1, type: 3}
 --- !u!1 &3755733451696859501 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ee67496064b72d4eb05f1ffb0a86fb1, type: 3}
   m_PrefabInstance: {fileID: 4097821000358188092}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &572466020785112708
-CircleCollider2D:
+--- !u!65 &6481053598673675037
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3755733451696859501}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -107,21 +116,9 @@ CircleCollider2D:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.574582, y: 2.3621995, z: 12.245611}
+  m_Center: {x: 0.26017517, y: 0.8752838, z: 0.042133328}

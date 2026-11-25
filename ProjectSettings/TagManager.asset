@@ -10,6 +10,7 @@ TagManager:
   - Building
   - SpeedBoost
   - DropOff
+  - Bg_DropOff
   layers:
   - Default
   - TransparentFX

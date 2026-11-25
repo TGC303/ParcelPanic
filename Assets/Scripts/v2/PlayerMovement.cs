@@ -57,29 +57,5 @@ public class PlayerMovement : MonoBehaviour
         MoveForce = Vector3.Lerp(MoveForce.normalized, transform.forward, Traction * Time.deltaTime) * MoveForce.magnitude;
     }
     
-    /*public void AddWeight(float weight)
-{
-        VanWeight += weight;
-
-        if (weight <= 25)
-        {
-            // Light parcel
-            MoveSpeed -= weight * 0.05f;
-            MaxSpeed -= weight * 0.05f;
-        }
-        else
-        {
-            // Heavy parcel - normal impact
-            MoveSpeed -= weight * 0.5f;
-            MaxSpeed -= weight * 0.5f;
-        }
-
-
-            //Mathf -- compares two numbers and returns the larger
-                MoveSpeed = Mathf.Max(250f, MoveSpeed);
-                MaxSpeed = Mathf.Max(300f, MaxSpeed);
-}
-*/
-
 
 }

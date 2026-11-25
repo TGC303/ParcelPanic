@@ -25,6 +25,16 @@ public class VanWeight : MonoBehaviour
                 playerMovement.MoveSpeed = Mathf.Max(250f, playerMovement.MoveSpeed);
                 playerMovement.MaxSpeed = Mathf.Max(300f, playerMovement.MaxSpeed);
     }  
+
+    public void RemoveWeight(float weight)
+{
+    playerMovement.VanWeight -= weight;
+
+    // prevents the van's weight from going below 0kg // Retruns the larger number
+    playerMovement.VanWeight = Mathf.Max(0f, playerMovement.VanWeight);
+
+    Debug.Log("Remaining weight: " + playerMovement.VanWeight + "kg");
+}
             
 }
 
