@@ -9,6 +9,7 @@ TagManager:
   - Road
   - Building
   - SpeedBoost
+  - DropOff
   layers:
   - Default
   - TransparentFX
