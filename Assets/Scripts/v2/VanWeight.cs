@@ -1,11 +1,16 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class VanWeight : MonoBehaviour
 {
-        public PlayerMovement playerMovement;
-    
-       public void AddWeight(float weight)
+    public PlayerMovement playerMovement;
+
+    public List<float> collectedParcels = new List<float>();
+
+    public void AddWeight(float weight)
     {
+        collectedParcels.Add(weight);
+
         playerMovement.VanWeight += weight;
 
         if (weight <= 25)
@@ -16,26 +21,36 @@ public class VanWeight : MonoBehaviour
         }
         else
         {
-            // Heavy parcel - normal impact
+            // Heavy parcel
             playerMovement.MoveSpeed -= weight * 0.5f;
             playerMovement.MaxSpeed -= weight * 0.5f;
         }
 
-            //Mathf -- compares two numbers and returns the larger
-                playerMovement.MoveSpeed = Mathf.Max(250f, playerMovement.MoveSpeed);
-                playerMovement.MaxSpeed = Mathf.Max(300f, playerMovement.MaxSpeed);
-    }  
+        // Minimum speed limits
+        playerMovement.MoveSpeed = Mathf.Max(250f, playerMovement.MoveSpeed);
+        playerMovement.MaxSpeed = Mathf.Max(300f, playerMovement.MaxSpeed);
 
-    public void RemoveWeight(float weight)
-{
-    playerMovement.VanWeight -= weight;
+        Debug.Log("Total weight: " + playerMovement.VanWeight + "kg");
+    }
 
-    // prevents the van's weight from going below 0kg // Retruns the larger number
-    playerMovement.VanWeight = Mathf.Max(0f, playerMovement.VanWeight);
+    public void RemoveWeight()
+    {
+        // Find parcels between 5kg and 100kg
+        List<float> availableParcels = collectedParcels.FindAll(weight => weight >= 5 && weight <= 1000);
 
-    Debug.Log("Remaining weight: " + playerMovement.VanWeight + "kg");
+        if (availableParcels.Count > 0)
+        {
+            // Randomly select a collected parcel
+            float weight = availableParcels[Random.Range(0, availableParcels.Count)];
+            collectedParcels.Remove(weight);
+            playerMovement.VanWeight -= weight;
+
+            Debug.Log("Parcel delivered: " + weight + "kg");
+            Debug.Log("Remaining weight: " + playerMovement.VanWeight + "kg");
+        }
+        else
+        {
+            Debug.Log("No suitable parcels to deliver");
+        }
+    }
 }
-            
-}
-
-

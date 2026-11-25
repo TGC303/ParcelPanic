@@ -7,7 +7,7 @@ public class DropOffManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Working");
+            other.GetComponentInParent<VanWeight>().RemoveWeight();
         }
     }
 }

@@ -6,31 +6,23 @@ using UnityEditor;
 public class ParcelWeight : MonoBehaviour
 {
     private float parcelWeight;
-    public int minWeight = 5;
-    public int maxWeight = 250;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int minWeight = 5;
+    public int maxWeight = 100;
+
     void Start()
     {
-         // Generate a random parcel weight
-        parcelWeight = Random.Range(minWeight, maxWeight);
+        parcelWeight = Random.Range(minWeight, maxWeight + 1);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponentInParent<VanWeight>().AddWeight(parcelWeight);
+
+            Debug.Log("Parcel collected: " + parcelWeight + "kg");
+            Destroy(gameObject);
+        }
     }
-
-    private void OnTriggerEnter(Collider other)
-{
-    if (other.CompareTag("Player"))
-    {
-        other.GetComponentInParent<VanWeight>().AddWeight(parcelWeight);
-
-        Debug.Log("Parcel collected: " + parcelWeight + "kg");
-
-        Destroy(gameObject);
-    }
-}
 }
